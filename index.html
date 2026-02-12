@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Vijaya 🎉</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+      font-family: Arial, sans-serif;
+    }
+    .card{
+      background:#fff;
+      width:92%;
+      max-width:440px;
+      border-radius:18px;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 12px 30px rgba(0,0,0,.2);
+    }
+    h1{ color:#ff3b7a; margin-bottom:8px; }
+    p{ color:#444; line-height:1.6; font-size:14px; }
+    .btn{
+      margin-top:12px;
+      padding:10px 18px;
+      border-radius:999px;
+      border:none;
+      background:#ff3b7a;
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+    }
+    .hidden{ display:none; }
+    .msg-box{
+      text-align:left;
+      font-size:14px;
+      line-height:1.7;
+      white-space:pre-wrap;
+      border-left:4px solid #ff3b7a;
+      padding-left:10px;
+      margin-top:10px;
+      min-height:120px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="card" id="page1">
+    <h1>Happy Birthday Vijaya 🎉</h1>
+    <p>A little message from my heart for you 💖</p>
+    <button class="btn" onclick="openMsg()">Open Message 💌</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="card hidden" id="page2">
+    <h1>For You, Vijaya 💕</h1>
+    <div class="msg-box" id="msg"></div>
+    <button class="btn" onclick="restart()">Read Again 🔁</button>
+  </div>
+
+  <script>
+    const message = `Happy birthday to my favourite person in the world who's the most beautiful soul, the strongest girl I ever known, my lovely girl, I can't even have enough words to describe and tell u how precious you r to me, how amazing ur to me babe. 
+
+Every memory we've made is etched in my heart forever. From our deepest talks to our dumbest moments you've been my favourite chapter. I treasure our friendship more than words can express. 
+
+I hope we continue to be each others close friend forever. Whatever happens, the time we spent with each other will never be forgotten. Even if one day we start to grow distant, know that I'll always be there for you. (Hope that day will never come)  
+
+Happy birthday gurll. I love you for all that you are, all that you have been and all that you will be. We're not just friends, we're a whole story — written in giggles, clumsiness, secrets, talks — you're my forever girly pop...!!
+
+Stay loud, stay softie, stay you.... My princess, today you've completed another year of your life.  
+
+Happy birthday to that one person who always manages to make me smile, no matter what's going on. My heart feels deeply thankful for you. Even though I haven't known you for so long, the way you've loved and cared for me so gently has become one of the most beautiful gifts in my life.  
+
+I pray life gives you all the love, success, and happiness your beautiful heart desires because you truly deserve it all and more. You are rare, you are precious and I'm so grateful to have you in my life.  
+
+Always stay the amazing person you are — the world is better with you in it.  
+You'll always be my vijjjuuuuu (jaldi aao hum late ho rahe hain)  
+
+I • LOVE • YOU ❤️`;
+
+    let i = 0;
+    let typing;
+
+    function openMsg(){
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+      typeWriter();
+    }
+
+    function typeWriter(){
+      const box = document.getElementById('msg');
+      box.innerHTML = "";
+      i = 0;
+      clearInterval(typing);
+      typing = setInterval(() => {
+        if (i < message.length) {
+          box.innerHTML += message.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, 25);
+    }
+
+    function restart(){
+      typeWriter();
+    }
+  </script>
+
+</body>
+</html>
